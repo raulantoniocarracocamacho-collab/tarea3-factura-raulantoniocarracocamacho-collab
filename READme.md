@@ -37,5 +37,9 @@ static double aplicarIVA(double importe) Sirve para sumar el IVA al coste del pr
 - ¿Qué ventaja tiene frente al código anterior?
 Que es mucho mas limpio el main y si hay que cambiar el metodo por cualquier razón solo hace falta modificar esa parte y no cada uno por todo el archivo
 ## Reto 5 · ¿Qué lenguaje elegirías?
-- Caso A (web de la tienda):
-- Caso B (propuesta en ensamblador):
+- Caso A (web de la tienda): Usaría un lenguaje interpretado ya que:
+-1- se necesita que los clientes puedan entender el lenguaje para que puedan calcularlo ellos mismos
+-2- ofrece gran portabilidad al no necesitar instalación de software adicional permitiendo realizar los calculos desde un buscador cualquiera
+- Caso B (propuesta en ensamblador): Usaría un lenguaje ensamblador por que:
+-1- Permite un mayor rendimiento y velocidad al ser leido directamente por la maquina en vez de traducido a un lenguaje que si pueda entender
+-2- Al escribirlo en lenguaje maquina ya no se necesitan interpretes o maquinas virtuales, abaratando costes
