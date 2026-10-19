@@ -1,0 +1,45 @@
+# Tarea 3 · La factura bajo el microscopio
+Pareja: Raul Antonio· GitHub: raulantoniocarracocamacho-collab
+
+## Reto 1 · Compilar desde la terminal
+- Comando usado y resultado (captura: capturas/reto1.png)
+- ¿Qué es Factura.java? ¿Y Factura.class? ¿Quién ejecuta el .class?
+Factura.java es el codigo fuente
+Factura.class será el archivo de bytecode compilado 
+.class lo ejecuta la maquina virtual de java (JVM)
+- ¿Por qué no se ha generado Factura.class la primera vez?
+Porque el codigo no compilaba
+
+## Reto 2 · Errores de compilación
+| Nº | Línea | Mensaje de javac | Tipo (léxico / sintaxis / semántica) | Corrección |
+|----|-------|------------------|--------------------------------------|------------|
+| 1  |  15   |   Factura.java:15: error: illegal character: '#' double precio# = sc.nextDouble();      |                     léxico         |   double precio = sc.nextDouble();   |
+| 2  |  17   |   Factura.java:17: error: ';' expected
+        int cantidad = sc.nextInt()   |     sintaxis        |    int cantidad = sc.nextInt();     |
+| 3  |   29   |   Factura.java:29: error: incompatible types: possible lossy conversion from double to int
+        int total = (base - descuento) * (1 + IVA);    |       semántica         |     double total = (base - descuento) * (1 + IVA);       |
+Captura del programa funcionando: capturas/reto2.png
+
+## Reto 3 · Depuración del error lógico
+| Variable | Valor esperado |    Valor real   |
+|----------|----------------|-----------------|
+| descuento|      15%       |        5%       |
+| total    |     123.42     |      137.94     |
+- Línea del error y explicación: linea 27, al ser (descuento = ) tras otro (descuento = ) el segundo sobreescribe el primero
+- Corrección: descuento += base * 0.05;
+- Mi propia prueba (producto, precio, cantidad, socio → total): ka, 60, 2, s -> 123.42
+Captura del depurador: capturas/reto3.png
+
+## Reto 4 · Reutilización
+- Métodos creados y para qué sirve cada uno:
+calcularDescuento(double base, boolean socio) Sirve para contar el descuento que se acumula segun los datos introducidos, ese descuento siendo de 10% si el total base supera los 100, 5% si el comprador es socio y 15% si ambos requisitos se cumplen
+static double aplicarIVA(double importe) Sirve para sumar el IVA al coste del precio acumulado con el descuento obtenido (IVA de 21%)
+- ¿Qué ventaja tiene frente al código anterior?
+Que es mucho mas limpio el main y si hay que cambiar el metodo por cualquier razón solo hace falta modificar esa parte y no cada uno por todo el archivo
+## Reto 5 · ¿Qué lenguaje elegirías?
+- Caso A (web de la tienda): Usaría un lenguaje interpretado ya que:
+-1- se necesita que los clientes puedan entender el lenguaje para que puedan calcularlo ellos mismos
+-2- ofrece gran portabilidad al no necesitar instalación de software adicional permitiendo realizar los calculos desde un buscador cualquiera
+- Caso B (propuesta en ensamblador): Usaría un lenguaje ensamblador por que:
+-1- Permite un mayor rendimiento y velocidad al ser leido directamente por la maquina en vez de traducido a un lenguaje que si pueda entender
+-2- Al escribirlo en lenguaje maquina ya no se necesitan interpretes o maquinas virtuales, abaratando costes
