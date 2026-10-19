@@ -14,10 +14,8 @@ Porque el codigo no compilaba
 | Nº | Línea | Mensaje de javac | Tipo (léxico / sintaxis / semántica) | Corrección |
 |----|-------|------------------|--------------------------------------|------------|
 | 1  |  15   |   Factura.java:15: error: illegal character: '#' double precio# = sc.nextDouble();      |                     léxico         |   double precio = sc.nextDouble();   |
-| 2  |  17   |   Factura.java:17: error: ';' expected
-        int cantidad = sc.nextInt()   |     sintaxis        |    int cantidad = sc.nextInt();     |
-| 3  |   29   |   Factura.java:29: error: incompatible types: possible lossy conversion from double to int
-        int total = (base - descuento) * (1 + IVA);    |       semántica         |     double total = (base - descuento) * (1 + IVA);       |
+| 2  |  17   |   Factura.java:17: error: ';' expected int cantidad = sc.nextInt()   |     sintaxis        |    int cantidad = sc.nextInt();     |
+| 3  |   29   |   Factura.java:29: error: incompatible types: possible lossy conversion from double to int int total = (base - descuento) * (1 + IVA);    |       semántica         |     double total = (base - descuento) * (1 + IVA);       |
 Captura del programa funcionando: capturas/reto2.png
 
 ## Reto 3 · Depuración del error lógico
@@ -37,5 +35,9 @@ static double aplicarIVA(double importe) Sirve para sumar el IVA al coste del pr
 - ¿Qué ventaja tiene frente al código anterior?
 Que es mucho mas limpio el main y si hay que cambiar el metodo por cualquier razón solo hace falta modificar esa parte y no cada uno por todo el archivo
 ## Reto 5 · ¿Qué lenguaje elegirías?
-- Caso A (web de la tienda):
-- Caso B (propuesta en ensamblador):
+- Caso A (web de la tienda): Usaría un lenguaje interpretado ya que:
+-1- se necesita que los clientes puedan entender el lenguaje para que puedan calcularlo ellos mismos
+-2- ofrece gran portabilidad al no necesitar instalación de software adicional permitiendo realizar los calculos desde un buscador cualquiera
+- Caso B (propuesta en ensamblador): Usaría un lenguaje ensamblador por que:
+-1- Permite un mayor rendimiento y velocidad al ser leido directamente por la maquina en vez de traducido a un lenguaje que si pueda entender
+-2- Al escribirlo en lenguaje maquina ya no se necesitan interpretes o maquinas virtuales, abaratando costes
